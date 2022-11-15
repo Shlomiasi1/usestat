@@ -15,7 +15,6 @@ function Counter() {
       <h1>Counter</h1>
       <p>Count in: {count} ff</p>
       <button onClick={AddOne}>Click To Add One To Counter</button>
-
     </div>
   );
 }
