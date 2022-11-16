@@ -5,6 +5,7 @@ export default function App() {
   const [time, setTime] = useState(0);
   const reset = () => {
     setTime(0);
+    
   };
   return (
     <div className="App">
