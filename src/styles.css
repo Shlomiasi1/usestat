@@ -1,0 +1,35 @@
+.App {
+    font-family: cursive;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  
+  body {
+    background: rgb(0, 225, 255);
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .mainHeading {
+    font-size: 40px;
+  }
+  
+  .count {
+    font-size: 35px;
+    font-family: cursive;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 35px;
+    font-family: cursive;
+    border-radius: 15px;
+    outline: none;
+  }
+  
