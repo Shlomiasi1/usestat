@@ -8,7 +8,7 @@ export default function App() {
   };
   return (
     <div className="App">
-      <h1 className="mainHeading">Counter App With Reset</h1>
+      <h1 className="mainHeading"><b>Counter App With Reset</b></h1>
       <div className="count">{time}</div>
       <div className="buttons">
         <button
