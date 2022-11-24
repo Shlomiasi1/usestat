@@ -16,7 +16,13 @@ const Counter = (props) => {
     
   }
   function minusOne() {
-    setCount(count - delta);
+    if(count<=0){
+      setCount((count = 0));
+    }
+    else{
+      setCount(count - delta);
+    }
+    
   }
   function resetCount() {
     setCount((count = 0));
