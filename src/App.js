@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import "./styles.css";
+import Counter from "./Counter";
 
-export default function App() {
-  const [time, setTime] = useState(0);
-  const reset = () => {
-    setTime(0);
-  };
+function App() {
+  const [delta, setDelta] = useState(0);
+  const [maxNum ,plusOne] = useState(0);
+  function handlerDelta(e) {
+    // console.log(setDelta(Number(e.target.value)));
+    setDelta(Number(e.target.value));
+  }
+  function handlerPlusOne(e) {
+    // console.log(setDelta(Number(e.target.value)));
+    plusOne(Number(e.target.value));
+  }
   return (
     <div className="App">
-      <h1 className="mainHeading"><b>Counter App With Reset</b></h1>
-      <div className="count">{time}</div>
-      <div className="buttons">
-        <button
-          onClick={() => {
-            setTime(time + 1);
-          }}
-        >
-          Add 1 to the Counter
-        </button>
-        <button onClick={reset}>Reset The Counter</button>
-
-      </div>
+      <h1> Select a number of steps to Counter</h1>
+      <input type="number" value={delta} onChange={handlerDelta} />
+      <h1> Select the maximum number for the counter</h1>
+      <input type="number" value={maxNum} onChange={handlerPlusOne} />
+      <Counter delta={delta} maxNum ={maxNum}/>
+      <Counter delta={delta} maxNum = {maxNum}/>
     </div>
   );
 }
+
+export default App;

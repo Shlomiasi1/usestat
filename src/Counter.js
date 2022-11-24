@@ -1,22 +1,41 @@
+import React, { useState } from "react";
+import "./App.css";
 
-import {useState} from "react";
+const Counter = (props) => {
+  let [count, setCount] = useState(0);
+  const delta = props.delta;
+  const maxNum = props.maxNum;
 
-function Counter() {
-    const [count, setCount ] = useState(1);
-    function AddOne(){
-        setCount(
-            function(oldCount){
-                return oldCount+1
-            }
-        )
+  function addOne() {
+    if(count >= maxNum){
+      setCount((count = 0));
     }
+    else{
+      setCount(count + delta);
+    }
+    
+  }
+  function minusOne() {
+    setCount(count - delta);
+  }
+  function resetCount() {
+    setCount((count = 0));
+  }
   return (
-    <div className="Counter">
-      <h1>Counter</h1>
-      <p>Count in: {count} ff</p>
-      <button onClick={AddOne}>Click To Add One To Counter</button>
+    <div>
+      <p>The counter is at: </p>
+      <h2>{count}</h2>
+      <div>
+        <button onClick={minusOne} title="Less delta">less {delta}
+        </button>
+        <button onClick={resetCount} title="Reset counter">reset Counter
+        </button>
+        <button onClick={addOne} title="Add one">Add {delta}
+
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default Counter;
