@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./App.css";
 
 const Counter = (props) => {
   let [count, setCount] = useState(0);
-  const delta = props.delta;
-  const maxNum = props.maxNum;
+
+  const {delta,maxNum , getReset, needToReset, setMaximumNumber} = props;
+
+  useEffect(()=>{
+    if(needToReset){
+      setCount(0)
+      getReset(false)
+    }
+  },[needToReset,getReset]
+  )
 
   function addOne() {
     if(count >= maxNum){
@@ -12,6 +20,7 @@ const Counter = (props) => {
     }
     else{
       setCount(count + delta);
+      setMaximumNumber(count + delta)
     }
     
   }
@@ -24,9 +33,12 @@ const Counter = (props) => {
     }
     
   }
+
   function resetCount() {
+    getReset(true)
     setCount((count = 0));
   }
+
   return (
     <div>
       <p>The counter is at: </p>
